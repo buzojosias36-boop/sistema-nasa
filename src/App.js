@@ -1,308 +1,291 @@
-import React, { useState } from "react";
-
-const precios = {
-  "Campo Aceval": "140.000",
-  "Loma Plata": "140.000",
-  "Concepción": "150.000",
-  "Ciudad del Este": "120.000",
-  "Pedro Juan Caballero": "150.000",
-  "Presidente Franco": "100.000",
-  "Horqueta": "150.000",
-  "Mariscal Estigarribia": "140.000",
-  "San Pedro": "120.000",
-  "Neuland": "140.000",
-  "Vallemí": "150.000",
-  "Filadelfia": "140.000",
-};
-
-const horarios = [
-  ["05:00", "Campo Aceval"],
-  ["06:00", "Loma Plata"],
-  ["06:20", "Ciudad del Este"],
-  ["06:30", "Concepción"],
-  ["07:00", "Ciudad del Este"],
-  ["09:00", "Ciudad del Este"],
-  ["09:30", "Concepción"],
-  ["09:40", "Ciudad del Este"],
-  ["10:00", "Pedro Juan Caballero"],
-  ["10:20", "Presidente Franco"],
-  ["10:45", "Concepción"],
-  ["13:30", "Pedro Juan Caballero"],
-  ["14:00", "Horqueta"],
-  ["14:00", "Loma Plata"],
-  ["14:30", "Horqueta"],
-  ["14:30", "Mariscal Estigarribia"],
-  ["16:40", "Presidente Franco"],
-  ["21:15", "Mariscal Estigarribia"],
-  ["21:30", "San Pedro"],
-  ["21:45", "Horqueta"],
-  ["22:00", "Neuland"],
-  ["22:15", "Vallemí"],
-  ["22:50", "Concepción"],
-  ["23:00", "Loma Plata"],
-  ["23:30", "Ciudad del Este"],
-  ["23:45", "Pedro Juan Caballero"],
-];
-
-function App() {
-  const [fecha, setFecha] = useState("");
-
-  const reservar = (hora, destino, precio) => {
-    if (!fecha) {
-      alert("Por favor seleccioná la fecha del viaje.");
-      return;
-    }
-
-    const mensaje = `Hola, quiero reservar pasaje con Nasa Golondrina.
-Destino: ${destino}
-Fecha del viaje: ${fecha}
-Horario: ${hora}
-Precio: Gs. ${precio}`;
-
-    window.open(
-      `https://wa.me/595994652330?text=${encodeURIComponent(mensaje)}`,
-      "_blank"
-    );
-  };
-
-  return (
-    <div style={styles.body}>
-      <div style={styles.topLine}></div>
-
-      <header style={styles.header}>
-        <div>
-          <h1 style={styles.logo}>Nasa Golondrina</h1>
-          <p style={styles.slogan}>Venta online de pasajes nacionales</p>
-        </div>
-        <div style={styles.reserveNumber}>Reservas: 0994 652 330</div>
-      </header>
-
-      <section style={styles.hero}>
-        <div style={styles.heroText}>
-          <h2 style={styles.heroTitle}>Viajá por Paraguay con comodidad</h2>
-          <p style={styles.heroSubtitle}>
-            Consultá horarios, precios y reservá tu pasaje directo por WhatsApp.
-          </p>
-
-          <div style={styles.dateBox}>
-            <label style={styles.dateLabel}>Fecha del viaje</label>
-            <input
-              style={styles.dateInput}
-              type="date"
-              value={fecha}
-              onChange={(e) => setFecha(e.target.value)}
-            />
-          </div>
-        </div>
-      </section>
-
-      <main style={styles.content}>
-        <h2 style={styles.title}>Horarios disponibles</h2>
-        <p style={styles.description}>
-          Seleccioná la fecha del viaje y luego tocá “Reservar por WhatsApp”.
-        </p>
-
-        <div style={styles.cardGrid}>
-          {horarios.map(([hora, destino], index) => {
-            const precio = precios[destino] || "Consultar";
-
-            return (
-              <div key={index} style={styles.card}>
-                <div style={styles.cardTop}>
-                  <span style={styles.time}>{hora}</span>
-                  <span style={styles.badge}>Disponible</span>
-                </div>
-
-                <h3 style={styles.destination}>{destino}</h3>
-
-                <div style={styles.infoRow}>
-                  <span>Fecha</span>
-                  <strong>{fecha || "Seleccionar arriba"}</strong>
-                </div>
-
-                <div style={styles.infoRow}>
-                  <span>Días</span>
-                  <strong>Lunes a Domingo</strong>
-                </div>
-
-                <div style={styles.infoRow}>
-                  <span>Precio</span>
-                  <strong>Gs. {precio}</strong>
-                </div>
-
-                <button
-                  style={styles.button}
-                  onClick={() => reservar(hora, destino, precio)}
-                >
-                  Reservar por WhatsApp
-                </button>
-              </div>
-            );
-          })}
-        </div>
-      </main>
-    </div>
-  );
+* {
+  box-sizing: border-box;
 }
 
-const styles = {
-  body: {
-    minHeight: "100vh",
-    background: "#f4f6fb",
-    fontFamily: "Arial, sans-serif",
-    color: "#111827",
-  },
-  topLine: {
-    height: "9px",
-    background: "linear-gradient(90deg, #d52b1e 0%, #ffffff 50%, #0038a8 100%)",
-  },
-  header: {
-    background: "#ffffff",
-    padding: "22px 60px",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    boxShadow: "0 8px 25px rgba(0,0,0,0.08)",
-  },
-  logo: {
-    margin: 0,
-    color: "#0038a8",
-    fontSize: "34px",
-    fontWeight: "900",
-  },
-  slogan: {
-    margin: "6px 0 0",
-    color: "#d52b1e",
-    fontWeight: "700",
-  },
-  reserveNumber: {
-    background: "#d52b1e",
-    color: "white",
-    borderRadius: "999px",
-    padding: "13px 22px",
-    fontWeight: "800",
-  },
-  hero: {
-    minHeight: "330px",
-    backgroundImage:
-      "linear-gradient(90deg, rgba(0,56,168,0.82), rgba(213,43,30,0.28)), url('/bus.jpg')",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    display: "flex",
-    alignItems: "center",
-    padding: "50px 60px",
-  },
-  heroText: {
-    background: "rgba(255,255,255,0.94)",
-    padding: "34px",
-    borderRadius: "28px",
-    maxWidth: "560px",
-    boxShadow: "0 18px 45px rgba(0,0,0,0.25)",
-  },
-  heroTitle: {
-    margin: 0,
-    color: "#0038a8",
-    fontSize: "42px",
-    fontWeight: "900",
-    lineHeight: "1.1",
-  },
-  heroSubtitle: {
-    color: "#374151",
-    fontSize: "18px",
-    lineHeight: "1.5",
-    margin: "16px 0 24px",
-  },
-  dateBox: {
-    background: "#f4f6fb",
-    padding: "18px",
-    borderRadius: "18px",
-    border: "1px solid #dbe1ea",
-  },
-  dateLabel: {
-    display: "block",
-    fontWeight: "900",
-    color: "#0038a8",
-    marginBottom: "8px",
-  },
-  dateInput: {
-    width: "100%",
-    padding: "14px",
-    borderRadius: "12px",
-    border: "1px solid #cbd5e1",
-    fontSize: "16px",
-  },
-  content: {
-    padding: "42px 60px",
-  },
-  title: {
-    margin: 0,
-    fontSize: "32px",
-    color: "#0038a8",
-    fontWeight: "900",
-  },
-  description: {
-    color: "#6b7280",
-    fontSize: "16px",
-    marginTop: "8px",
-  },
-  cardGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(245px, 1fr))",
-    gap: "22px",
-    marginTop: "26px",
-  },
-  card: {
-    background: "#ffffff",
-    borderRadius: "24px",
-    padding: "24px",
-    boxShadow: "0 12px 35px rgba(0,0,0,0.08)",
-    border: "1px solid #e5e7eb",
-    borderTop: "7px solid #0038a8",
-  },
-  cardTop: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  time: {
-    color: "#d52b1e",
-    fontSize: "30px",
-    fontWeight: "900",
-  },
-  badge: {
-    background: "#eef2ff",
-    color: "#0038a8",
-    borderRadius: "999px",
-    padding: "6px 10px",
-    fontSize: "12px",
-    fontWeight: "900",
-  },
-  destination: {
-    color: "#111827",
-    fontSize: "22px",
-    margin: "18px 0",
-    minHeight: "54px",
-  },
-  infoRow: {
-    display: "flex",
-    justifyContent: "space-between",
-    borderTop: "1px solid #e5e7eb",
-    padding: "12px 0",
-    color: "#374151",
-    gap: "10px",
-  },
-  button: {
-    width: "100%",
-    marginTop: "16px",
-    background: "#25D366",
-    color: "white",
-    border: "none",
-    borderRadius: "15px",
-    padding: "14px",
-    fontWeight: "900",
-    cursor: "pointer",
-    fontSize: "15px",
-  },
-};
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6fb;
+  color: #111827;
+}
 
-export default App;
+.top-line {
+  height: 9px;
+  background: linear-gradient(90deg, #d52b1e 0%, #ffffff 50%, #0038a8 100%);
+}
+
+.header {
+  background: white;
+  padding: 22px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.header h1 {
+  margin: 0;
+  color: #0038a8;
+  font-size: 34px;
+  font-weight: 900;
+}
+
+.header p {
+  margin: 6px 0 0;
+  color: #d52b1e;
+  font-weight: 700;
+}
+
+.phone-button {
+  background: #d52b1e;
+  color: white;
+  border-radius: 999px;
+  padding: 13px 22px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.hero {
+  min-height: 360px;
+  background-image:
+    linear-gradient(90deg, rgba(0, 56, 168, 0.82), rgba(213, 43, 30, 0.28)),
+    url("/bus.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding: 55px 60px;
+}
+
+.hero-box {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 36px;
+  border-radius: 28px;
+  max-width: 580px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+}
+
+.hero-box h2 {
+  margin: 0;
+  color: #0038a8;
+  font-size: 44px;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.hero-box p {
+  color: #374151;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.hero-box label {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  color: #0038a8;
+  font-weight: 900;
+}
+
+.hero-box input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 14px;
+  border: 1px solid #cbd5e1;
+  font-size: 16px;
+}
+
+.section {
+  padding: 50px 60px;
+}
+
+.section h2,
+.mission-section h2 {
+  margin: 0;
+  font-size: 34px;
+  color: #0038a8;
+  font-weight: 900;
+}
+
+.section-text {
+  color: #6b7280;
+  font-size: 16px;
+  margin-top: 8px;
+  margin-bottom: 30px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+  gap: 22px;
+}
+
+.trip-card {
+  background: white;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+  border-top: 7px solid #0038a8;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-top strong {
+  color: #d52b1e;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.card-top span {
+  background: #eef2ff;
+  color: #0038a8;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.trip-card h3 {
+  font-size: 22px;
+  margin: 18px 0;
+  min-height: 54px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #e5e7eb;
+  padding: 12px 0;
+  gap: 10px;
+}
+
+.trip-card button {
+  width: 100%;
+  margin-top: 16px;
+  background: #25d366;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  padding: 14px;
+  font-weight: 900;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.mission-section {
+  padding: 60px;
+  background: white;
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.info-card {
+  background: #f4f6fb;
+  padding: 28px;
+  border-radius: 24px;
+  border-left: 7px solid #d52b1e;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+.info-card h3 {
+  color: #0038a8;
+  font-size: 24px;
+  margin-top: 0;
+}
+
+.info-card p {
+  line-height: 1.6;
+  color: #374151;
+}
+
+.branches {
+  background: #f4f6fb;
+}
+
+.branches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 22px;
+}
+
+.branch-card {
+  background: white;
+  padding: 26px;
+  border-radius: 22px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+  border-top: 6px solid #0038a8;
+}
+
+.branch-card h3 {
+  margin-top: 0;
+  color: #0038a8;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+
+.branch-card p {
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.badges {
+  margin-top: 15px;
+}
+
+.badges span {
+  background: #d52b1e;
+  color: white;
+  padding: 7px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  display: inline-block;
+  margin: 4px 4px 4px 0;
+}
+
+.footer {
+  background: #0038a8;
+  color: white;
+  text-align: center;
+  padding: 30px;
+}
+
+.footer h3 {
+  margin: 0 0 8px;
+}
+
+.footer p {
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .header {
+    padding: 20px;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .hero {
+    padding: 30px 20px;
+  }
+
+  .hero-box h2 {
+    font-size: 34px;
+  }
+
+  .section,
+  .mission-section {
+    padding: 35px 20px;
+  }
+}
