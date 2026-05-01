@@ -76,17 +76,15 @@ Precio: Gs. ${precio}`;
   };
 
   return (
-    <div className="container">
-      <header className="header">
-        <div>
-          <h1>Nasa Golondrina</h1>
-          <p>Venta online de pasajes nacionales</p>
-        </div>
-        <a className="phone-button" href="https://wa.me/595994652330">
-          Reservas: 0994 652 330
-        </a>
-      </header>
+    <header className="header">
+  <div className="logo-container">
+    <img src="/Logo principal sin fondo.jpg" alt="Logo" className="logo" />
+    <h1>Nasa Golondrina</h1>
+  </div>
 
+  <p>Venta online de pasajes nacionales</p>
+  <a href="tel:0994652330">Reservas: 0994 652 330</a>
+</header>
       <section className="hero">
         <div className="hero-box">
           <h2>Viajá por Paraguay con comodidad</h2>
