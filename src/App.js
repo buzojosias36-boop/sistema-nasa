@@ -202,7 +202,7 @@ function App() {
 
               <a
                 className="whatsapp-pay"
-                href={`https://wa.me/595994652330?text=${encodeURIComponent(
+                href={`https://wa.me/595981668662?text=${encodeURIComponent(
 `Hola, ya realicé la transferencia para mi pasaje.
 Destino: ${viajeSeleccionado.destino}
 Fecha: ${fecha}
