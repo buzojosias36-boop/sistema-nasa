@@ -65,8 +65,8 @@ Precio: Gs. ${precio}`;
     <div className="page">
       <header className="topbar">
         <div className="brand">
-          <img src="/Logo principal sin fondo.jpg" alt="Nasa Golondrina" />
-          <div>
+          <img src="/logo.png" alt="Nasa Golondrina" />
+         <div>
             <h1>Nasa Golondrina</h1>
             <p>Transporte nacional de pasajeros</p>
           </div>
