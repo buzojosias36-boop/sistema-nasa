@@ -42,23 +42,18 @@ const contactos = [
 function App() {
   const [seccion, setSeccion] = useState("horarios");
   const [fecha, setFecha] = useState("");
+  const [viajeSeleccionado, setViajeSeleccionado] = useState(null);
+  const [asiento, setAsiento] = useState(null);
 
-  const reservar = (hora, destino, precio) => {
+  const consultar = (hora, destino, precio) => {
     if (!fecha) {
       alert("Por favor seleccioná la fecha del viaje.");
       return;
     }
 
-    const mensaje = `Hola, quiero reservar pasaje con Nasa Golondrina.
-Destino: ${destino}
-Fecha: ${fecha}
-Horario: ${hora}
-Precio: Gs. ${precio}`;
-
-    window.open(
-      `https://wa.me/595994652330?text=${encodeURIComponent(mensaje)}`,
-      "_blank"
-    );
+    setViajeSeleccionado({ hora, destino, precio });
+    setAsiento(null);
+    setSeccion("asientos");
   };
 
   return (
@@ -66,7 +61,7 @@ Precio: Gs. ${precio}`;
       <header className="topbar">
         <div className="brand">
           <img src="/logo.png" alt="Nasa Golondrina" />
-         <div>
+          <div>
             <h1>Nasa Golondrina</h1>
             <p>Transporte nacional de pasajeros</p>
           </div>
@@ -83,17 +78,11 @@ Precio: Gs. ${precio}`;
         <div className="heroContent">
           <span>NASA GOLONDRINA PARAGUAY</span>
           <h2>Viajá por Paraguay con seguridad, comodidad y confianza.</h2>
-          <p>
-            Consultá itinerarios, precios y reservá tu pasaje directo por WhatsApp.
-          </p>
+          <p>Consultá itinerarios, precios y reservá tu pasaje directo por WhatsApp.</p>
 
           <div className="dateBox">
             <label>Fecha del viaje</label>
-            <input
-              type="date"
-              value={fecha}
-              onChange={(e) => setFecha(e.target.value)}
-            />
+            <input type="date" value={fecha} onChange={(e) => setFecha(e.target.value)} />
           </div>
         </div>
       </section>
@@ -123,8 +112,8 @@ Precio: Gs. ${precio}`;
                   <b>Lunes a Domingo</b>
                 </div>
 
-                <button onClick={() => reservar(hora, destino, precio)}>
-                  Reservar por WhatsApp
+                <button onClick={() => consultar(hora, destino, precio)}>
+                  Consultar
                 </button>
               </div>
             ))}
@@ -140,28 +129,17 @@ Precio: Gs. ${precio}`;
           <div className="empresaGrid">
             <div className="empresaCard">
               <h3>Misión</h3>
-              <p>
-                Brindar un servicio de transporte seguro, cómodo y confiable,
-                conectando personas, familias y ciudades de Paraguay con responsabilidad,
-                puntualidad y atención cercana.
-              </p>
+              <p>Brindar un servicio de transporte seguro, cómodo y confiable, conectando personas, familias y ciudades de Paraguay.</p>
             </div>
 
             <div className="empresaCard">
               <h3>Visión</h3>
-              <p>
-                Ser una empresa referente en transporte nacional, destacándonos por
-                innovación, calidad de servicio, modernización tecnológica y compromiso
-                permanente con nuestros pasajeros.
-              </p>
+              <p>Ser una empresa referente en transporte nacional, destacándonos por innovación, calidad de servicio y modernización tecnológica.</p>
             </div>
 
             <div className="empresaCard">
               <h3>Valores</h3>
-              <p>
-                Seguridad, honestidad, respeto, responsabilidad, servicio al cliente
-                y compromiso con el desarrollo del Paraguay.
-              </p>
+              <p>Seguridad, honestidad, respeto, responsabilidad, servicio al cliente y compromiso con el Paraguay.</p>
             </div>
           </div>
         </section>
@@ -185,6 +163,62 @@ Precio: Gs. ${precio}`;
               </div>
             ))}
           </div>
+        </section>
+      )}
+
+      {seccion === "asientos" && viajeSeleccionado && (
+        <section className="section">
+          <h2>Seleccioná tu asiento</h2>
+          <p className="subtitle">
+            {viajeSeleccionado.destino} - {viajeSeleccionado.hora} hs - Gs. {viajeSeleccionado.precio}
+          </p>
+
+          <div className="bus-layout">
+            {Array.from({ length: 64 }, (_, i) => i + 1).map((num) => (
+              <button
+                key={num}
+                className={asiento === num ? "seat selected" : "seat"}
+                onClick={() => setAsiento(num)}
+              >
+                {num}
+              </button>
+            ))}
+          </div>
+
+          {asiento && (
+            <div className="payment-box">
+              <h3>Resumen de reserva</h3>
+              <p><b>Destino:</b> {viajeSeleccionado.destino}</p>
+              <p><b>Fecha:</b> {fecha}</p>
+              <p><b>Horario:</b> {viajeSeleccionado.hora}</p>
+              <p><b>Asiento:</b> {asiento}</p>
+              <p><b>Monto:</b> Gs. {viajeSeleccionado.precio}</p>
+
+              <h3>Datos para transferencia</h3>
+              <p><b>Banco:</b> Banco Itaú Paraguay</p>
+              <p><b>Titular:</b> NASA GOLONDRINA S.A.</p>
+              <p><b>Cuenta:</b> 0000000000</p>
+              <p><b>RUC:</b> 5277316-7</p>
+
+              <a
+                className="whatsapp-pay"
+                href={`https://wa.me/595994652330?text=${encodeURIComponent(
+`Hola, ya realicé la transferencia para mi pasaje.
+Destino: ${viajeSeleccionado.destino}
+Fecha: ${fecha}
+Horario: ${viajeSeleccionado.hora}
+Asiento: ${asiento}
+Monto: Gs. ${viajeSeleccionado.precio}
+
+Adjunto comprobante.`
+                )}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Enviar comprobante por WhatsApp
+              </a>
+            </div>
+          )}
         </section>
       )}
 
