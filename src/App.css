@@ -4,157 +4,308 @@
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #eef4f8;
+  font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+  background: #edf6fb;
   color: #0f172a;
 }
 
-.app {
+.page {
   min-height: 100vh;
 }
 
-/* BARRA SUPERIOR */
-.navbar {
+.topbar {
   background: #7dd3fc;
   padding: 18px 55px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  align-items: center;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
   position: sticky;
   top: 0;
   z-index: 10;
 }
 
-.logo {
-  height: 55px;
-  background: white;
-  padding: 6px;
-  border-radius: 14px;
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
-.menu {
+.brand img {
+  width: 85px;
+  background: white;
+  border-radius: 16px;
+  padding: 8px;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 32px;
+  color: #0038a8;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.brand p {
+  margin: 2px 0 0;
+  color: #d52b1e;
+  font-weight: 800;
+}
+
+nav {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
-.menu button {
+nav button {
   border: none;
   background: white;
   color: #0038a8;
-  padding: 11px 16px;
+  padding: 12px 18px;
   border-radius: 999px;
   font-weight: 900;
   cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.10);
 }
 
-/* CONTENIDO */
-.contenido {
-  padding: 40px;
-}
-
-/* HERO SIN IMAGEN PARA EVITAR ERROR */
 .hero {
-  min-height: 330px;
-  background: linear-gradient(90deg, #0038a8, #7dd3fc, #d52b1e);
-  color: white;
-  border-radius: 30px;
-  padding: 50px;
+  min-height: 430px;
+  background: linear-gradient(135deg, #0038a8 0%, #7dd3fc 55%, #d52b1e 100%);
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  box-shadow: 0 18px 45px rgba(0,0,0,0.18);
+  align-items: center;
+  padding: 60px;
 }
 
-.hero h1 {
-  font-size: 48px;
+.heroContent {
+  background: rgba(255,255,255,0.94);
+  max-width: 680px;
+  padding: 42px;
+  border-radius: 34px;
+  box-shadow: 0 25px 70px rgba(0,0,0,0.25);
+}
+
+.heroContent span {
+  background: #0038a8;
+  color: white;
+  padding: 9px 15px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.heroContent h2 {
+  color: #0038a8;
+  font-size: 46px;
+  line-height: 1.1;
+  margin: 24px 0 14px;
+  letter-spacing: -1px;
+}
+
+.heroContent p {
+  color: #334155;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.dateBox {
+  margin-top: 24px;
+  background: #f1f5f9;
+  padding: 18px;
+  border-radius: 20px;
+  border: 1px solid #dbeafe;
+}
+
+.dateBox label {
+  display: block;
+  font-weight: 900;
+  color: #0038a8;
+  margin-bottom: 8px;
+}
+
+.dateBox input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 14px;
+  border: 1px solid #cbd5e1;
+  font-size: 16px;
+}
+
+.section {
+  padding: 60px;
+}
+
+.section h2 {
   margin: 0;
+  font-size: 38px;
+  color: #0038a8;
+  font-weight: 900;
+  letter-spacing: -1px;
 }
 
-.hero p {
-  font-size: 20px;
-}
-
-/* CUADROS */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
-  margin-top: 30px;
-}
-
-.card {
-  background: white;
-  border-radius: 24px;
-  padding: 26px;
-  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.10);
-  border: 1px solid #e2e8f0;
-  border-top: 7px solid #0038a8;
-  text-align: center;
-}
-
-.card h3 {
-  color: #d52b1e;
-  font-size: 30px;
-  margin: 0 0 15px;
-}
-
-.card p {
+.subtitle {
+  margin: 8px 0 32px;
+  color: #64748b;
   font-size: 17px;
 }
 
-.card button {
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 26px;
+}
+
+.tripCard,
+.contactCard,
+.empresaCard {
+  background: white;
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow: 0 18px 45px rgba(15,23,42,0.10);
+  border: 1px solid #e2e8f0;
+}
+
+.tripCard {
+  border-top: 8px solid #0038a8;
+}
+
+.timeRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timeRow strong {
+  font-size: 33px;
+  color: #d52b1e;
+}
+
+.timeRow span {
+  background: #e0f2fe;
+  color: #0038a8;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.tripCard h3 {
+  min-height: 55px;
+  font-size: 23px;
+  margin: 24px 0;
+  color: #0f172a;
+}
+
+.infoRow {
+  border-top: 1px solid #e2e8f0;
+  padding: 13px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.infoRow p {
+  margin: 0;
+  color: #64748b;
+}
+
+.infoRow b {
+  color: #0f172a;
+}
+
+.tripCard button {
   width: 100%;
+  margin-top: 18px;
   background: #25d366;
   color: white;
   border: none;
-  padding: 15px;
   border-radius: 16px;
+  padding: 15px;
   font-size: 15px;
   font-weight: 900;
-  margin-top: 16px;
   cursor: pointer;
 }
 
-/* EMPRESA */
-.empresa {
-  max-width: 900px;
-  margin: 30px auto;
-  background: white;
-  padding: 35px;
-  border-radius: 26px;
-  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.10);
-  border-left: 10px solid #d52b1e;
+.empresaGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 26px;
 }
 
-.empresa h2 {
+.empresaCard {
+  border-left: 8px solid #d52b1e;
+}
+
+.empresaCard h3,
+.contactCard h3 {
   color: #0038a8;
-  font-size: 32px;
+  font-size: 25px;
+  margin-top: 0;
 }
 
-.empresa p {
-  font-size: 19px;
+.empresaCard p,
+.contactCard p {
+  color: #334155;
+  font-size: 16px;
   line-height: 1.6;
+  font-weight: 600;
 }
 
-/* CELULAR */
+.contactCard {
+  border-top: 8px solid #7dd3fc;
+}
+
+.badges span {
+  display: inline-block;
+  background: #d52b1e;
+  color: white;
+  padding: 8px 11px;
+  border-radius: 10px;
+  margin: 6px 6px 0 0;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+footer {
+  background: #0038a8;
+  color: white;
+  text-align: center;
+  padding: 36px;
+}
+
+footer h3 {
+  margin: 0 0 8px;
+}
+
+footer p {
+  margin: 0;
+}
+
 @media (max-width: 800px) {
-  .navbar {
+  .topbar {
     padding: 18px;
     flex-direction: column;
     gap: 16px;
+    text-align: center;
   }
 
-  .contenido {
-    padding: 20px;
+  .brand {
+    flex-direction: column;
   }
 
   .hero {
-    padding: 32px;
+    padding: 30px 20px;
   }
 
-  .hero h1 {
-    font-size: 36px;
+  .heroContent {
+    padding: 30px;
+  }
+
+  .heroContent h2 {
+    font-size: 34px;
+  }
+
+  .section {
+    padding: 38px 20px;
   }
 }
