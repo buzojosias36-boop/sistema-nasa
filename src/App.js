@@ -2,32 +2,41 @@ import React, { useState } from "react";
 import "./App.css";
 
 const horarios = [
-  ["05:00", "Campo Aceval", "140.000"],
-  ["06:00", "Loma Plata", "140.000"],
-  ["06:20", "Ciudad del Este", "120.000"],
-  ["06:30", "Concepción", "150.000"],
-  ["07:00", "Ciudad del Este", "120.000"],
-  ["09:00", "Ciudad del Este", "120.000"],
-  ["09:30", "Concepción", "150.000"],
-  ["09:40", "Ciudad del Este", "120.000"],
-  ["10:00", "Pedro Juan Caballero", "150.000"],
-  ["10:20", "Presidente Franco", "120.000"],
-  ["10:45", "Concepción", "150.000"],
-  ["13:30", "Pedro Juan Caballero", "150.000"],
-  ["14:00", "Horqueta", "150.000"],
-  ["14:00", "Loma Plata", "140.000"],
-  ["14:30", "Horqueta", "150.000"],
-  ["14:30", "Mariscal Estigarribia", "140.000"],
-  ["16:40", "Presidente Franco", "120.000"],
-  ["21:15", "Mariscal Estigarribia", "140.000"],
-  ["21:30", "San Pedro", "120.000"],
-  ["21:45", "Horqueta", "150.000"],
-  ["22:00", "Neuland", "140.000"],
-  ["22:15", "Vallemí", "150.000"],
-  ["22:50", "Concepción", "150.000"],
-  ["23:00", "Loma Plata", "140.000"],
-  ["23:30", "Ciudad del Este", "120.000"],
-  ["23:45", "Pedro Juan Caballero", "150.000"],
+  ["05:00", "Asunción → Campo Aceval", "140.000"],
+  ["06:00", "Asunción → Loma Plata", "140.000"],
+  ["06:20", "Asunción → Ciudad del Este", "120.000"],
+  ["06:30", "Asunción → Concepción", "150.000"],
+  ["07:00", "Asunción → Ciudad del Este", "120.000"],
+  ["09:00", "Asunción → Ciudad del Este", "120.000"],
+  ["09:30", "Asunción → Concepción", "150.000"],
+  ["09:40", "Asunción → Ciudad del Este", "120.000"],
+  ["10:00", "Asunción → Pedro Juan Caballero", "150.000"],
+  ["10:20", "Asunción → Presidente Franco", "120.000"],
+  ["10:45", "Asunción → Concepción", "150.000"],
+  ["13:30", "Asunción → Pedro Juan Caballero", "150.000"],
+  ["14:00", "Asunción → Horqueta", "150.000"],
+  ["14:00", "Asunción → Loma Plata", "140.000"],
+  ["14:30", "Asunción → Horqueta", "150.000"],
+  ["14:30", "Asunción → Mariscal Estigarribia", "140.000"],
+  ["16:40", "Asunción → Presidente Franco", "120.000"],
+  ["21:15", "Asunción → Mariscal Estigarribia", "140.000"],
+  ["21:30", "Asunción → San Pedro", "120.000"],
+  ["21:45", "Asunción → Horqueta", "150.000"],
+  ["22:00", "Asunción → Neuland", "140.000"],
+  ["22:15", "Asunción → Vallemí", "150.000"],
+  ["22:50", "Asunción → Concepción", "150.000"],
+  ["23:00", "Asunción → Loma Plata", "140.000"],
+  ["23:30", "Asunción → Ciudad del Este", "120.000"],
+  ["23:45", "Asunción → Pedro Juan Caballero", "150.000"],
+
+  ["00:40", "Ciudad del Este → Asunción", "120.000"],
+  ["04:00", "Ciudad del Este → Asunción", "120.000"],
+  ["05:40", "Ciudad del Este → Asunción", "120.000"],
+  ["06:20", "Ciudad del Este → Asunción", "120.000"],
+  ["10:20", "Ciudad del Este → Asunción", "120.000"],
+  ["14:40", "Ciudad del Este → Asunción", "120.000"],
+  ["15:20", "Ciudad del Este → Asunción", "120.000"],
+  ["16:20", "Ciudad del Este → Asunción", "120.000"],
 ];
 
 const contactos = [
@@ -82,7 +91,11 @@ function App() {
 
           <div className="dateBox">
             <label>Fecha del viaje</label>
-            <input type="date" value={fecha} onChange={(e) => setFecha(e.target.value)} />
+            <input
+              type="date"
+              value={fecha}
+              onChange={(e) => setFecha(e.target.value)}
+            />
           </div>
         </div>
       </section>
@@ -90,7 +103,7 @@ function App() {
       {seccion === "horarios" && (
         <section className="section">
           <h2>Horarios y precios</h2>
-          <p className="subtitle">Salidas disponibles desde Asunción.</p>
+          <p className="subtitle">Salidas nacionales disponibles.</p>
 
           <div className="grid">
             {horarios.map(([hora, destino, precio], index) => (
@@ -129,17 +142,26 @@ function App() {
           <div className="empresaGrid">
             <div className="empresaCard">
               <h3>Misión</h3>
-              <p>Brindar un servicio de transporte seguro, cómodo y confiable, conectando personas, familias y ciudades de Paraguay.</p>
+              <p>
+                Brindar un servicio de transporte seguro, cómodo y confiable,
+                conectando personas, familias y ciudades de Paraguay.
+              </p>
             </div>
 
             <div className="empresaCard">
               <h3>Visión</h3>
-              <p>Ser una empresa referente en transporte nacional, destacándonos por innovación, calidad de servicio y modernización tecnológica.</p>
+              <p>
+                Ser una empresa referente en transporte nacional, destacándonos
+                por innovación, calidad de servicio y modernización tecnológica.
+              </p>
             </div>
 
             <div className="empresaCard">
               <h3>Valores</h3>
-              <p>Seguridad, honestidad, respeto, responsabilidad, servicio al cliente y compromiso con el Paraguay.</p>
+              <p>
+                Seguridad, honestidad, respeto, responsabilidad, servicio al
+                cliente y compromiso con el Paraguay.
+              </p>
             </div>
           </div>
         </section>
@@ -170,7 +192,8 @@ function App() {
         <section className="section">
           <h2>Seleccioná tu asiento</h2>
           <p className="subtitle">
-            {viajeSeleccionado.destino} - {viajeSeleccionado.hora} hs - Gs. {viajeSeleccionado.precio}
+            {viajeSeleccionado.destino} - {viajeSeleccionado.hora} hs - Gs.{" "}
+            {viajeSeleccionado.precio}
           </p>
 
           <div className="bus-layout">
@@ -224,7 +247,7 @@ Adjunto comprobante.`
 
       <footer>
         <h3>Nasa Golondrina Paraguay</h3>
-        <p>Reservas: 0994 652 330</p>
+        <p>Reservas: 0981 668 662</p>
       </footer>
     </div>
   );

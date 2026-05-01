@@ -266,6 +266,60 @@ nav button {
   font-weight: 900;
 }
 
+.bus-layout {
+  max-width: 650px;
+  margin: 30px auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  background: white;
+  padding: 28px;
+  border-radius: 28px;
+  box-shadow: 0 18px 45px rgba(15,23,42,0.12);
+}
+
+.seat {
+  padding: 14px;
+  border-radius: 12px;
+  border: 2px solid #0038a8;
+  background: #f8fafc;
+  color: #0038a8;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.seat.selected {
+  background: #25d366;
+  color: white;
+  border-color: #25d366;
+}
+
+.payment-box {
+  max-width: 650px;
+  margin: 30px auto;
+  background: white;
+  padding: 32px;
+  border-radius: 28px;
+  box-shadow: 0 18px 45px rgba(15,23,42,0.12);
+  border-left: 8px solid #0038a8;
+}
+
+.payment-box h3 {
+  color: #0038a8;
+}
+
+.whatsapp-pay {
+  display: block;
+  margin-top: 25px;
+  text-align: center;
+  background: #25d366;
+  color: white;
+  padding: 16px;
+  border-radius: 16px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
 footer {
   background: #0038a8;
   color: white;
