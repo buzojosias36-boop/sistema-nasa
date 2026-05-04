@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./App.css";
 
 const horarios = [
-{
 ["02:30", "Concepción → Asunción", "150.000"],
 ["08:20", "Concepción → Asunción", "150.000"],
 ["11:30", "Concepción → Asunción", "150.000"],
@@ -12,7 +11,7 @@ const horarios = [
 ["23:15", "Concepción → Asunción", "150.000"],
 ["23:50", "Concepción → Asunción", "150.000"],
 ["23:59", "Concepción → Asunción", "150.000"],
- }
+ 
   ["05:00", "Asunción → Campo Aceval", "140.000"],
   ["06:00", "Asunción → Loma Plata", "140.000"],
   ["06:20", "Asunción → Ciudad del Este", "120.000"],
