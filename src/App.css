@@ -363,3 +363,13 @@ footer p {
     padding: 38px 20px;
   }
 }
+.dateBox select {
+  width: 100%;
+  padding: 15px;
+  border-radius: 14px;
+  border: 1px solid #cbd5e1;
+  font-size: 16px;
+  font-weight: 800;
+  color: #0038a8;
+  background: white;
+}

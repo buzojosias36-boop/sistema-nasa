@@ -53,6 +53,7 @@ function App() {
   const [fecha, setFecha] = useState("");
   const [viajeSeleccionado, setViajeSeleccionado] = useState(null);
   const [asiento, setAsiento] = useState(null);
+  const [origen, setOrigen] = useState("Asunción");
 
   const consultar = (hora, destino, precio) => {
     if (!fecha) {
@@ -97,43 +98,50 @@ function App() {
               onChange={(e) => setFecha(e.target.value)}
             />
           </div>
+<div className="dateBox">
+  <label>Estoy en</label>
+  <select value={origen} onChange={(e) => setOrigen(e.target.value)}>
+    <option value="Asunción">Asunción</option>
+    <option value="Ciudad del Este">Ciudad del Este</option>
+  </select>
+</div>
         </div>
       </section>
+{seccion === "horarios" && (
+  <section className="section">
+    <h2>Horarios y precios</h2>
+    <p className="subtitle">Salidas nacionales disponibles.</p>
 
-      {seccion === "horarios" && (
-        <section className="section">
-          <h2>Horarios y precios</h2>
-          <p className="subtitle">Salidas nacionales disponibles.</p>
+    <div className="grid">
+      {horarios
+        .filter(([, destino]) => destino.startsWith(origen))
+        .map(([hora, destino, precio], index) => (
+          <div className="tripCard" key={index}>
+            <div className="timeRow">
+              <strong>{hora}</strong>
+              <span>Disponible</span>
+            </div>
 
-          <div className="grid">
-            {horarios.map(([hora, destino, precio], index) => (
-              <div className="tripCard" key={index}>
-                <div className="timeRow">
-                  <strong>{hora}</strong>
-                  <span>Disponible</span>
-                </div>
+            <h3>{destino}</h3>
 
-                <h3>{destino}</h3>
+            <div className="infoRow">
+              <p>Precio</p>
+              <b>Gs. {precio}</b>
+            </div>
 
-                <div className="infoRow">
-                  <p>Precio</p>
-                  <b>Gs. {precio}</b>
-                </div>
+            <div className="infoRow">
+              <p>Días</p>
+              <b>Lunes a Domingo</b>
+            </div>
 
-                <div className="infoRow">
-                  <p>Días</p>
-                  <b>Lunes a Domingo</b>
-                </div>
-
-                <button onClick={() => consultar(hora, destino, precio)}>
-                  Consultar
-                </button>
-              </div>
-            ))}
+            <button onClick={() => consultar(hora, destino, precio)}>
+              Consultar
+            </button>
           </div>
-        </section>
-      )}
-
+        ))}
+    </div>
+  </section>
+)}
       {seccion === "empresa" && (
         <section className="section">
           <h2>Nuestra Empresa</h2>
