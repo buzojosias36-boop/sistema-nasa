@@ -2,6 +2,21 @@ import React, { useState } from "react";
 import "./App.css";
 
 const horarios = [
+{
+  destino: "Concepción → Asunción",
+  horarios: [
+    "02:30",
+    "08:20",
+    "11:30",
+    "12:00",
+    "16:00",
+    "21:45",
+    "23:15",
+    "23:50",
+    "23:59"
+  ],
+  precio: 150000
+}
   ["05:00", "Asunción → Campo Aceval", "140.000"],
   ["06:00", "Asunción → Loma Plata", "140.000"],
   ["06:20", "Asunción → Ciudad del Este", "120.000"],
@@ -78,12 +93,46 @@ const rutaActual = window.location.pathname;
         </div>
 
         <nav>
-          <button onClick={() => setSeccion("horarios")}>Horarios</button>
-          <button onClick={() => setSeccion("empresa")}>Empresa</button>
-          <button onClick={() => setSeccion("contactos")}>Contactos</button>
+  <button onClick={() => setSeccion("horarios")}>Horarios</button>
+  <button onClick={() => setSeccion("empresa")}>Empresa</button>
+  <button onClick={() => setSeccion("contactos")}>Contactos</button>
+
+  {/* NUEVAS RUTAS SEO */}
+  <button onClick={() => window.location.href = "/asuncion-ciudad-del-este"}>
+    Asunción → CDE
+  </button>
+
+  <button onClick={() => window.location.href = "/asuncion-concepcion"}>
+    Asunción → Concepción
+  </button>
         </nav>
       </header>
+{rutaActual === "/asuncion-ciudad-del-este" && (
+  <section className="section">
+    <h2>Pasajes Asunción a Ciudad del Este</h2>
+    <p className="subtitle">
+      Viajá de Asunción a Ciudad del Este con NASA Golondrina. Consultá horarios, precios y disponibilidad.
+    </p>
+  </section>
+)}
 
+{rutaActual === "/asuncion-concepcion" && (
+  <section className="section">
+    <h2>Pasajes Asunción a Concepción</h2>
+    <p className="subtitle">
+      Pasajes diarios desde Asunción a Concepción. Servicio cómodo, seguro y nacional.
+    </p>
+  </section>
+)}
+
+{rutaActual === "/asuncion-chaco" && (
+  <section className="section">
+    <h2>Pasajes Asunción al Chaco</h2>
+    <p className="subtitle">
+      Viajá desde Asunción hacia Loma Plata, Filadelfia, Neuland y Mariscal Estigarribia.
+    </p>
+  </section>
+)}
       <section className="hero">
         <div className="heroContent">
           <span>NASA GOLONDRINA PARAGUAY</span>
