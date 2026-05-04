@@ -2,6 +2,13 @@ import React, { useState } from "react";
 import "./App.css";
 
 const horarios = [
+["07:00", "Pedro Juan Caballero → Asunción", "150.000"],
+["11:00", "Pedro Juan Caballero → Asunción", "150.000"],
+["13:30", "Pedro Juan Caballero → Asunción", "150.000"],
+["19:30", "Pedro Juan Caballero → Asunción", "150.000"],
+["20:00", "Pedro Juan Caballero → Asunción", "150.000"],
+["23:45", "Pedro Juan Caballero → Asunción", "150.000"],
+
 ["02:30", "Concepción → Asunción", "150.000"],
 ["08:20", "Concepción → Asunción", "150.000"],
 ["11:30", "Concepción → Asunción", "150.000"],
@@ -148,6 +155,7 @@ const rutaActual = window.location.pathname;
     <option value="Asunción">Asunción</option>
     <option value="Ciudad del Este">Ciudad del Este</option>
 <option value="Concepción">Concepción</option>
+<option value="Pedro Juan Caballero">Pedro Juan Caballero</option>
   </select>
 </div>
         </div>
