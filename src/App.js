@@ -3,20 +3,16 @@ import "./App.css";
 
 const horarios = [
 {
-  destino: "Concepción → Asunción",
-  horarios: [
-    "02:30",
-    "08:20",
-    "11:30",
-    "12:00",
-    "16:00",
-    "21:45",
-    "23:15",
-    "23:50",
-    "23:59"
-  ],
-  precio: 150000
-}
+["02:30", "Concepción → Asunción", "150.000"],
+["08:20", "Concepción → Asunción", "150.000"],
+["11:30", "Concepción → Asunción", "150.000"],
+["12:00", "Concepción → Asunción", "150.000"],
+["16:00", "Concepción → Asunción", "150.000"],
+["21:45", "Concepción → Asunción", "150.000"],
+["23:15", "Concepción → Asunción", "150.000"],
+["23:50", "Concepción → Asunción", "150.000"],
+["23:59", "Concepción → Asunción", "150.000"],
+ }
   ["05:00", "Asunción → Campo Aceval", "140.000"],
   ["06:00", "Asunción → Loma Plata", "140.000"],
   ["06:20", "Asunción → Ciudad del Este", "120.000"],
@@ -152,6 +148,7 @@ const rutaActual = window.location.pathname;
   <select value={origen} onChange={(e) => setOrigen(e.target.value)}>
     <option value="Asunción">Asunción</option>
     <option value="Ciudad del Este">Ciudad del Este</option>
+<option value="Concepción">Concepción</option>
   </select>
 </div>
         </div>
