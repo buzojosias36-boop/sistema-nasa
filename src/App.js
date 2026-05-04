@@ -65,7 +65,7 @@ function App() {
     setAsiento(null);
     setSeccion("asientos");
   };
-
+const rutaActual = window.location.pathname;
   return (
     <div className="page">
       <header className="topbar">
