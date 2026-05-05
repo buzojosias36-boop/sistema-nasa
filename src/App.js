@@ -1,61 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
-import bus from './bus1.jpg';
 
-const horarios = [
-["07:00", "Pedro Juan Caballero → Asunción", "150.000"],
-["11:00", "Pedro Juan Caballero → Asunción", "150.000"],
-["13:30", "Pedro Juan Caballero → Asunción", "150.000"],
-["19:30", "Pedro Juan Caballero → Asunción", "150.000"],
-["20:00", "Pedro Juan Caballero → Asunción", "150.000"],
-["23:45", "Pedro Juan Caballero → Asunción", "150.000"],
-
-["02:30", "Concepción → Asunción", "150.000"],
-["08:20", "Concepción → Asunción", "150.000"],
-["11:30", "Concepción → Asunción", "150.000"],
-["12:00", "Concepción → Asunción", "150.000"],
-["16:00", "Concepción → Asunción", "150.000"],
-["21:45", "Concepción → Asunción", "150.000"],
-["23:15", "Concepción → Asunción", "150.000"],
-["23:50", "Concepción → Asunción", "150.000"],
-["23:59", "Concepción → Asunción", "150.000"],
- 
-  ["05:00", "Asunción → Campo Aceval", "140.000"],
-  ["06:00", "Asunción → Loma Plata", "140.000"],
-  ["06:20", "Asunción → Ciudad del Este", "120.000"],
-  ["06:30", "Asunción → Concepción", "150.000"],
-  ["07:00", "Asunción → Ciudad del Este", "120.000"],
-  ["09:00", "Asunción → Ciudad del Este", "120.000"],
-  ["09:30", "Asunción → Concepción", "150.000"],
-  ["09:40", "Asunción → Ciudad del Este", "120.000"],
-  ["10:00", "Asunción → Pedro Juan Caballero", "150.000"],
-  ["10:20", "Asunción → Presidente Franco", "120.000"],
-  ["10:45", "Asunción → Concepción", "150.000"],
-  ["13:30", "Asunción → Pedro Juan Caballero", "150.000"],
-  ["14:00", "Asunción → Horqueta", "150.000"],
-  ["14:00", "Asunción → Loma Plata", "140.000"],
-  ["14:30", "Asunción → Horqueta", "150.000"],
-  ["14:30", "Asunción → Mariscal Estigarribia", "140.000"],
-  ["16:40", "Asunción → Presidente Franco", "120.000"],
-  ["21:15", "Asunción → Mariscal Estigarribia", "140.000"],
-  ["21:30", "Asunción → San Pedro", "120.000"],
-  ["21:45", "Asunción → Horqueta", "150.000"],
-  ["22:00", "Asunción → Neuland", "140.000"],
-  ["22:15", "Asunción → Vallemí", "150.000"],
-  ["22:50", "Asunción → Concepción", "150.000"],
-  ["23:00", "Asunción → Loma Plata", "140.000"],
-  ["23:30", "Asunción → Ciudad del Este", "120.000"],
-  ["23:45", "Asunción → Pedro Juan Caballero", "150.000"],
-
-  ["00:40", "Ciudad del Este → Asunción", "120.000"],
-  ["04:00", "Ciudad del Este → Asunción", "120.000"],
-  ["05:40", "Ciudad del Este → Asunción", "120.000"],
-  ["06:20", "Ciudad del Este → Asunción", "120.000"],
-  ["10:20", "Ciudad del Este → Asunción", "120.000"],
-  ["14:40", "Ciudad del Este → Asunción", "120.000"],
-  ["15:20", "Ciudad del Este → Asunción", "120.000"],
-  ["16:20", "Ciudad del Este → Asunción", "120.000"],
-];
+const horarios = :contentReference[oaicite:0]{index=0};
 
 const contactos = [
   ["Asunción", "Avda. Fernando de la Mora y Avda. República Argentina, Asunción", "0981 668 662"],
@@ -83,61 +29,34 @@ function App() {
     setAsiento(null);
     setSeccion("asientos");
   };
-const rutaActual = window.location.pathname;
-return (
-  <div
-    className="page"
-    style={{
-     backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${bus})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      minHeight: '100vh'
-    }}
-  >
 
-    <nav>
-      <button onClick={() => setSeccion("horarios")}>Horarios</button>
-      <button onClick={() => setSeccion("empresa")}>Empresa</button>
-      <button onClick={() => setSeccion("contactos")}>Contactos</button>
+  const rutaActual = window.location.pathname;
 
-      {/* NUEVAS RUTAS SEO */}
-      <button onClick={() => window.location.href = "/asuncion-ciudad-del-este"}>
-        Asunción → CDE
-      </button>
-    </nav>
+  return (
+    <div className="page">
 
-{rutaActual === "/asuncion-ciudad-del-este" && (
-  <section className="section">
-    <h2>Pasajes Asunción a Ciudad del Este</h2>
-    <p className="subtitle">
-      Viajá de Asunción a Ciudad del Este con NASA Golondrina. Consultá horarios, precios y disponibilidad.
-    </p>
-  </section>
-)}
+      <nav>
+        <button onClick={() => setSeccion("horarios")}>Horarios</button>
+        <button onClick={() => setSeccion("empresa")}>Empresa</button>
+        <button onClick={() => setSeccion("contactos")}>Contactos</button>
 
-{rutaActual === "/asuncion-concepcion" && (
-  <section className="section">
-    <h2>Pasajes Asunción a Concepción</h2>
-    <p className="subtitle">
-      Pasajes diarios desde Asunción a Concepción. Servicio cómodo, seguro y nacional.
-    </p>
-  </section>
-)}
+        <button onClick={() => window.location.href = "/asuncion-ciudad-del-este"}>
+          Asunción → CDE
+        </button>
+      </nav>
 
-{rutaActual === "/asuncion-chaco" && (
-  <section className="section">
-    <h2>Pasajes Asunción al Chaco</h2>
-    <p className="subtitle">
-      Viajá desde Asunción hacia Loma Plata, Filadelfia, Neuland y Mariscal Estigarribia.
-    </p>
-  </section>
-)}
+      {rutaActual === "/asuncion-ciudad-del-este" && (
+        <section className="section">
+          <h2>Pasajes Asunción a Ciudad del Este</h2>
+          <p className="subtitle">
+            Viajá de Asunción a Ciudad del Este con NASA Golondrina.
+          </p>
+        </section>
+      )}
+
       <section className="hero">
         <div className="heroContent">
-          <span>NASA GOLONDRINA PARAGUAY</span>
-          <h2>Viajá por Paraguay con seguridad, comodidad y confianza.</h2>
-          <p>Consultá itinerarios, precios y reservá tu pasaje directo por WhatsApp.</p>
+          <h2>Viajá por Paraguay con seguridad y comodidad</h2>
 
           <div className="dateBox">
             <label>Fecha del viaje</label>
@@ -147,100 +66,60 @@ return (
               onChange={(e) => setFecha(e.target.value)}
             />
           </div>
-<div className="dateBox">
-  <label>Estoy en</label>
-  <select value={origen} onChange={(e) => setOrigen(e.target.value)}>
-    <option value="Asunción">Asunción</option>
-    <option value="Ciudad del Este">Ciudad del Este</option>
-<option value="Concepción">Concepción</option>
-<option value="Pedro Juan Caballero">Pedro Juan Caballero</option>
-  </select>
-</div>
+
+          <div className="dateBox">
+            <label>Estoy en</label>
+            <select value={origen} onChange={(e) => setOrigen(e.target.value)}>
+              <option>Asunción</option>
+              <option>Ciudad del Este</option>
+              <option>Concepción</option>
+              <option>Pedro Juan Caballero</option>
+            </select>
+          </div>
         </div>
       </section>
-{seccion === "horarios" && (
-  <section className="section">
-    <h2>Horarios y precios</h2>
-    <p className="subtitle">Salidas nacionales disponibles.</p>
 
-    <div className="grid">
-      {horarios
-        .filter(([, destino]) => destino.startsWith(origen))
-        .map(([hora, destino, precio], index) => (
-          <div className="tripCard" key={index}>
-            <div className="timeRow">
-              <strong>{hora}</strong>
-              <span>Disponible</span>
-            </div>
+      {seccion === "horarios" && (
+        <section className="section">
+          <h2>Horarios</h2>
 
-            <h3>{destino}</h3>
+          <div className="grid">
+            {horarios
+              .filter(([, destino]) => destino.startsWith(origen))
+              .map(([hora, destino, precio], index) => (
+                <div className="tripCard" key={index}>
+                  <strong>{hora}</strong>
+                  <h3>{destino}</h3>
+                  <p>Gs. {precio}</p>
 
-            <div className="infoRow">
-              <p>Precio</p>
-              <b>Gs. {precio}</b>
-            </div>
-
-            <div className="infoRow">
-              <p>Días</p>
-              <b>Lunes a Domingo</b>
-            </div>
-
-            <button onClick={() => consultar(hora, destino, precio)}>
-              Consultar
-            </button>
+                  <button onClick={() => consultar(hora, destino, precio)}>
+                    Consultar
+                  </button>
+                </div>
+              ))}
           </div>
-        ))}
-    </div>
-  </section>
-)}
+        </section>
+      )}
+
       {seccion === "empresa" && (
         <section className="section">
-          <h2>Nuestra Empresa</h2>
-          <p className="subtitle">Compromiso, seguridad y tradición.</p>
-
-          <div className="empresaGrid">
-            <div className="empresaCard">
-              <h3>Misión</h3>
-              <p>
-                Brindar un servicio de transporte seguro, cómodo y confiable,
-                conectando personas, familias y ciudades de Paraguay.
-              </p>
-            </div>
-
-            <div className="empresaCard">
-              <h3>Visión</h3>
-              <p>
-                Ser una empresa referente en transporte nacional, destacándonos
-                por innovación, calidad de servicio y modernización tecnológica.
-              </p>
-            </div>
-
-            <div className="empresaCard">
-              <h3>Valores</h3>
-              <p>
-                Seguridad, honestidad, respeto, responsabilidad, servicio al
-                cliente y compromiso con el Paraguay.
-              </p>
-            </div>
-          </div>
+          <h2>Empresa</h2>
+          <p className="subtitle">
+            Transporte nacional seguro y confiable.
+          </p>
         </section>
       )}
 
       {seccion === "contactos" && (
         <section className="section">
-          <h2>Contactos por ciudad</h2>
-          <p className="subtitle">Oficinas y puntos de atención.</p>
+          <h2>Contactos</h2>
 
           <div className="grid">
-            {contactos.map(([ciudad, direccion, telefono], index) => (
-              <div className="contactCard" key={index}>
-                <h3>{ciudad}</h3>
-                <p>📍 {direccion}</p>
-                <p>📞 {telefono}</p>
-                <div className="badges">
-                  <span>Venta de pasajes</span>
-                  <span>Encomiendas</span>
-                </div>
+            {contactos.map(([c, d, t], i) => (
+              <div key={i} className="contactCard">
+                <h3>{c}</h3>
+                <p>{d}</p>
+                <p>{t}</p>
               </div>
             ))}
           </div>
@@ -249,11 +128,7 @@ return (
 
       {seccion === "asientos" && viajeSeleccionado && (
         <section className="section">
-          <h2>Seleccioná tu asiento</h2>
-          <p className="subtitle">
-            {viajeSeleccionado.destino} - {viajeSeleccionado.hora} hs - Gs.{" "}
-            {viajeSeleccionado.precio}
-          </p>
+          <h2>Seleccioná asiento</h2>
 
           <div className="bus-layout">
             {Array.from({ length: 64 }, (_, i) => i + 1).map((num) => (
@@ -266,48 +141,13 @@ return (
               </button>
             ))}
           </div>
-
-          {asiento && (
-            <div className="payment-box">
-              <h3>Resumen de reserva</h3>
-              <p><b>Destino:</b> {viajeSeleccionado.destino}</p>
-              <p><b>Fecha:</b> {fecha}</p>
-              <p><b>Horario:</b> {viajeSeleccionado.hora}</p>
-              <p><b>Asiento:</b> {asiento}</p>
-              <p><b>Monto:</b> Gs. {viajeSeleccionado.precio}</p>
-
-              <h3>Datos para transferencia</h3>
-              <p><b>Banco:</b> Banco Itaú Paraguay</p>
-              <p><b>Titular:</b> NASA GOLONDRINA S.A.</p>
-              <p><b>Cuenta:</b> 0000000000</p>
-              <p><b>RUC:</b> 5277316-7</p>
-
-              <a
-                className="whatsapp-pay"
-                href={`https://wa.me/595981668662?text=${encodeURIComponent(
-`Hola, ya realicé la transferencia para mi pasaje.
-Destino: ${viajeSeleccionado.destino}
-Fecha: ${fecha}
-Horario: ${viajeSeleccionado.hora}
-Asiento: ${asiento}
-Monto: Gs. ${viajeSeleccionado.precio}
-
-Adjunto comprobante.`
-                )}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Enviar comprobante por WhatsApp
-              </a>
-            </div>
-          )}
         </section>
       )}
 
       <footer>
-        <h3>Nasa Golondrina Paraguay</h3>
-        <p>Reservas: 0981 668 662</p>
+        <p>Nasa Golondrina Paraguay</p>
       </footer>
+
     </div>
   );
 }
