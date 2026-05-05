@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import bus from './bus1.jpg';
 
 const horarios = [
 ["07:00", "Pedro Juan Caballero → Asunción", "150.000"],
@@ -83,32 +84,29 @@ function App() {
     setSeccion("asientos");
   };
 const rutaActual = window.location.pathname;
-  return (
-    <div className="page">
-      <header className="topbar">
-        <div className="brand">
-          <img src="/logo.png" alt="Nasa Golondrina" />
-          <div>
-            <h1>Nasa Golondrina</h1>
-            <p>Transporte nacional de pasajeros</p>
-          </div>
-        </div>
+return (
+  <div
+    className="page"
+    style={{
+     backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${bus})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      minHeight: '100vh'
+    }}
+  >
 
-        <nav>
-  <button onClick={() => setSeccion("horarios")}>Horarios</button>
-  <button onClick={() => setSeccion("empresa")}>Empresa</button>
-  <button onClick={() => setSeccion("contactos")}>Contactos</button>
+    <nav>
+      <button onClick={() => setSeccion("horarios")}>Horarios</button>
+      <button onClick={() => setSeccion("empresa")}>Empresa</button>
+      <button onClick={() => setSeccion("contactos")}>Contactos</button>
 
-  {/* NUEVAS RUTAS SEO */}
-  <button onClick={() => window.location.href = "/asuncion-ciudad-del-este"}>
-    Asunción → CDE
-  </button>
+      {/* NUEVAS RUTAS SEO */}
+      <button onClick={() => window.location.href = "/asuncion-ciudad-del-este"}>
+        Asunción → CDE
+      </button>
+    </nav>
 
-  <button onClick={() => window.location.href = "/asuncion-concepcion"}>
-    Asunción → Concepción
-  </button>
-        </nav>
-      </header>
 {rutaActual === "/asuncion-ciudad-del-este" && (
   <section className="section">
     <h2>Pasajes Asunción a Ciudad del Este</h2>

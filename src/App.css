@@ -1,14 +1,16 @@
 * {
   box-sizing: border-box;
 }
-
 body {
   margin: 0;
   padding: 0;
-  background-image: linear-gradient(
+
+  background: linear-gradient(
     rgba(0,0,0,0.4),
     rgba(0,0,0,0.4)
-  ), url('../public/bus1.jpg')
+  ),
+  url('./bus1.jpg');
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
