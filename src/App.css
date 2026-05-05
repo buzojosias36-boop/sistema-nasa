@@ -1,27 +1,27 @@
 * {
   box-sizing: border-box;
 }
+
 body {
   margin: 0;
   padding: 0;
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
+  background: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #111827;
 }
 
 .page {
   min-height: 100vh;
+  background: #ffffff;
 }
 
 .topbar {
-  background: #7dd3fc;
+  background: #ffffff;
   padding: 18px 55px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   position: sticky;
   top: 0;
   z-index: 10;
@@ -42,16 +42,8 @@ body {
 
 .brand h1 {
   margin: 0;
-  font-size: 32px;
-  color: #0038a8;
-  font-weight: 900;
-  letter-spacing: -1px;
-}
-
-.brand p {
-  margin: 2px 0 0;
-  color: #d52b1e;
-  font-weight: 800;
+  font-size: 22px;
+  color: #0f172a;
 }
 
 nav {
@@ -60,318 +52,70 @@ nav {
   flex-wrap: wrap;
 }
 
-nav button {
+button {
   border: none;
-  background: white;
-  color: #0038a8;
   padding: 12px 18px;
-  border-radius: 999px;
-  font-weight: 900;
-  cursor: pointer;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.10);
-}
-
-.hero {
-  min-height: 430px;
-  background: linear-gradient(135deg, #0038a8 0%, #7dd3fc 55%, #d52b1e 100%);
-  display: flex;
-  align-items: center;
-  padding: 60px;
-}
-
-.heroContent {
-  background: rgba(255,255,255,0.94);
-  max-width: 680px;
-  padding: 42px;
-  border-radius: 34px;
-  box-shadow: 0 25px 70px rgba(0,0,0,0.25);
-}
-
-.heroContent span {
-  background: #0038a8;
+  border-radius: 12px;
+  background: #0f172a;
   color: white;
-  padding: 9px 15px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 900;
-}
-
-.heroContent h2 {
-  color: #0038a8;
-  font-size: 46px;
-  line-height: 1.1;
-  margin: 24px 0 14px;
-  letter-spacing: -1px;
-}
-
-.heroContent p {
-  color: #334155;
-  font-size: 18px;
-  line-height: 1.5;
-}
-
-.dateBox {
-  margin-top: 24px;
-  background: #f1f5f9;
-  padding: 18px;
-  border-radius: 20px;
-  border: 1px solid #dbeafe;
-}
-
-.dateBox label {
-  display: block;
-  font-weight: 900;
-  color: #0038a8;
-  margin-bottom: 8px;
-}
-
-.dateBox input {
-  width: 100%;
-  padding: 15px;
-  border-radius: 14px;
-  border: 1px solid #cbd5e1;
-  font-size: 16px;
-}
-
-.section {
-  padding: 60px;
-}
-
-.section h2 {
-  margin: 0;
-  font-size: 38px;
-  color: #0038a8;
-  font-weight: 900;
-  letter-spacing: -1px;
-}
-
-.subtitle {
-  margin: 8px 0 32px;
-  color: #64748b;
-  font-size: 17px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 26px;
-}
-
-.tripCard,
-.contactCard,
-.empresaCard {
-  background: white;
-  border-radius: 28px;
-  padding: 28px;
-  box-shadow: 0 18px 45px rgba(15,23,42,0.10);
-  border: 1px solid #e2e8f0;
-}
-
-.tripCard {
-  border-top: 8px solid #0038a8;
-}
-
-.timeRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.timeRow strong {
-  font-size: 33px;
-  color: #d52b1e;
-}
-
-.timeRow span {
-  background: #e0f2fe;
-  color: #0038a8;
-  padding: 7px 12px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 900;
-}
-
-.tripCard h3 {
-  min-height: 55px;
-  font-size: 23px;
-  margin: 24px 0;
-  color: #0f172a;
-}
-
-.infoRow {
-  border-top: 1px solid #e2e8f0;
-  padding: 13px 0;
-  display: flex;
-  justify-content: space-between;
-  gap: 14px;
-}
-
-.infoRow p {
-  margin: 0;
-  color: #64748b;
-}
-
-.infoRow b {
-  color: #0f172a;
-}
-
-.tripCard button {
-  width: 100%;
-  margin-top: 18px;
-  background: #25d366;
-  color: white;
-  border: none;
-  border-radius: 16px;
-  padding: 15px;
-  font-size: 15px;
-  font-weight: 900;
   cursor: pointer;
-}
-
-.empresaGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 26px;
-}
-
-.empresaCard {
-  border-left: 8px solid #d52b1e;
-}
-
-.empresaCard h3,
-.contactCard h3 {
-  color: #0038a8;
-  font-size: 25px;
-  margin-top: 0;
-}
-
-.empresaCard p,
-.contactCard p {
-  color: #334155;
-  font-size: 16px;
-  line-height: 1.6;
   font-weight: 600;
 }
 
-.contactCard {
-  border-top: 8px solid #7dd3fc;
+button:hover {
+  background: #1e293b;
 }
 
-.badges span {
-  display: inline-block;
-  background: #d52b1e;
-  color: white;
-  padding: 8px 11px;
-  border-radius: 10px;
-  margin: 6px 6px 0 0;
-  font-size: 12px;
-  font-weight: 900;
-}
-
-.bus-layout {
-  max-width: 650px;
-  margin: 30px auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  background: white;
-  padding: 28px;
-  border-radius: 28px;
-  box-shadow: 0 18px 45px rgba(15,23,42,0.12);
-}
-
-.seat {
-  padding: 14px;
-  border-radius: 12px;
-  border: 2px solid #0038a8;
-  background: #f8fafc;
-  color: #0038a8;
-  font-weight: 900;
-  cursor: pointer;
-}
-
-.seat.selected {
-  background: #25d366;
-  color: white;
-  border-color: #25d366;
-}
-
-.payment-box {
-  max-width: 650px;
-  margin: 30px auto;
-  background: white;
-  padding: 32px;
-  border-radius: 28px;
-  box-shadow: 0 18px 45px rgba(15,23,42,0.12);
-  border-left: 8px solid #0038a8;
-}
-
-.payment-box h3 {
-  color: #0038a8;
-}
-
-.whatsapp-pay {
-  display: block;
-  margin-top: 25px;
-  text-align: center;
-  background: #25d366;
-  color: white;
-  padding: 16px;
-  border-radius: 16px;
-  font-weight: 900;
-  text-decoration: none;
-}
-
-footer {
-  background: #0038a8;
-  color: white;
-  text-align: center;
+.section {
+  max-width: 1100px;
+  margin: 40px auto;
   padding: 36px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
 }
 
-footer h3 {
-  margin: 0 0 8px;
+.section h2 {
+  margin-top: 0;
+  font-size: 32px;
+  color: #0f172a;
 }
 
-footer p {
-  margin: 0;
+.subtitle {
+  font-size: 18px;
+  color: #475569;
 }
 
-@media (max-width: 800px) {
+input,
+select {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+.card {
+  background: #f8fafc;
+  border-radius: 18px;
+  padding: 20px;
+  margin-top: 18px;
+}
+
+@media (max-width: 768px) {
   .topbar {
-    padding: 18px;
+    padding: 16px 22px;
     flex-direction: column;
     gap: 16px;
-    text-align: center;
-  }
-
-  .brand {
-    flex-direction: column;
-  }
-
-  .hero {
-    padding: 30px 20px;
-  }
-
-  .heroContent {
-    padding: 30px;
-  }
-
-  .heroContent h2 {
-    font-size: 34px;
   }
 
   .section {
-    padding: 38px 20px;
+    margin: 20px;
+    padding: 24px;
   }
-}
-.dateBox select {
-  width: 100%;
-  padding: 15px;
-  border-radius: 14px;
-  border: 1px solid #cbd5e1;
-  font-size: 16px;
-  font-weight: 800;
-  color: #0038a8;
-  background: white;
+
+  nav {
+    justify-content: center;
+  }
 }
