@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import bus from './bus1.jpg';
+
 
 const horarios = [
 ["07:00", "Pedro Juan Caballero → Asunción", "150.000"],
@@ -280,10 +280,13 @@ const rutaActual = window.location.pathname;
               <p><b>Monto:</b> Gs. {viajeSeleccionado.precio}</p>
 
               <h3>Datos para transferencia</h3>
-              <p><b>Banco:</b> Banco Itaú Paraguay</p>
-              <p><b>Titular:</b> NASA GOLONDRINA S.A.</p>
-              <p><b>Cuenta:</b> 0000000000</p>
-              <p><b>RUC:</b> 5277316-7</p>
+
+<p><strong>Cuenta:</strong> 10198059</p>
+<p><strong>Banco:</strong> Interfisa</p>
+<p><strong>Tipo:</strong> Caja de Ahorro</p>
+<p><strong>Titular:</strong> Karina Buzo</p>
+<p><strong>CI:</strong> 1279327</p>
+<p><strong>Alias:</strong> 1279327</p>
 
               <a
                 className="whatsapp-pay"
