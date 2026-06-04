@@ -1,25 +1,25 @@
 import React, { useState } from "react";
 import "./App.css";
-import busImg from "./bus1.jpg";
+import bus from './bus1.jpg';
 
 const horarios = [
-  ["07:00", "Pedro Juan Caballero → Asunción", "150.000"],
-  ["11:00", "Pedro Juan Caballero → Asunción", "150.000"],
-  ["13:30", "Pedro Juan Caballero → Asunción", "150.000"],
-  ["19:30", "Pedro Juan Caballero → Asunción", "150.000"],
-  ["20:00", "Pedro Juan Caballero → Asunción", "150.000"],
-  ["23:45", "Pedro Juan Caballero → Asunción", "150.000"],
+["07:00", "Pedro Juan Caballero → Asunción", "150.000"],
+["11:00", "Pedro Juan Caballero → Asunción", "150.000"],
+["13:30", "Pedro Juan Caballero → Asunción", "150.000"],
+["19:30", "Pedro Juan Caballero → Asunción", "150.000"],
+["20:00", "Pedro Juan Caballero → Asunción", "150.000"],
+["23:45", "Pedro Juan Caballero → Asunción", "150.000"],
 
-  ["02:30", "Concepción → Asunción", "150.000"],
-  ["08:20", "Concepción → Asunción", "150.000"],
-  ["11:30", "Concepción → Asunción", "150.000"],
-  ["12:00", "Concepción → Asunción", "150.000"],
-  ["16:00", "Concepción → Asunción", "150.000"],
-  ["21:45", "Concepción → Asunción", "150.000"],
-  ["23:15", "Concepción → Asunción", "150.000"],
-  ["23:50", "Concepción → Asunción", "150.000"],
-  ["23:59", "Concepción → Asunción", "150.000"],
-
+["02:30", "Concepción → Asunción", "150.000"],
+["08:20", "Concepción → Asunción", "150.000"],
+["11:30", "Concepción → Asunción", "150.000"],
+["12:00", "Concepción → Asunción", "150.000"],
+["16:00", "Concepción → Asunción", "150.000"],
+["21:45", "Concepción → Asunción", "150.000"],
+["23:15", "Concepción → Asunción", "150.000"],
+["23:50", "Concepción → Asunción", "150.000"],
+["23:59", "Concepción → Asunción", "150.000"],
+ 
   ["05:00", "Asunción → Campo Aceval", "140.000"],
   ["06:00", "Asunción → Loma Plata", "140.000"],
   ["06:20", "Asunción → Ciudad del Este", "120.000"],
@@ -69,9 +69,9 @@ const contactos = [
 function App() {
   const [seccion, setSeccion] = useState("horarios");
   const [fecha, setFecha] = useState("");
-  const [origen, setOrigen] = useState("Asunción");
   const [viajeSeleccionado, setViajeSeleccionado] = useState(null);
   const [asiento, setAsiento] = useState(null);
+  const [origen, setOrigen] = useState("Asunción");
 
   const consultar = (hora, destino, precio) => {
     if (!fecha) {
@@ -83,121 +83,147 @@ function App() {
     setAsiento(null);
     setSeccion("asientos");
   };
-
+const rutaActual = window.location.pathname;
   return (
     <div className="page">
       <header className="topbar">
         <div className="brand">
-          <img src="/logo.png" alt="NASA Golondrina" />
+          <img src="/logo.png" alt="Nasa Golondrina" />
           <div>
-            <h1>NASA Golondrina</h1>
-            <p>Paraguay</p>
+            <h1>Nasa Golondrina</h1>
+            <p>Transporte nacional de pasajeros</p>
           </div>
         </div>
 
         <nav>
-          <button onClick={() => setSeccion("horarios")}>Horarios</button>
-          <button onClick={() => setSeccion("empresa")}>Empresa</button>
-          <button onClick={() => setSeccion("contactos")}>Contactos</button>
+  <button onClick={() => setSeccion("horarios")}>Horarios</button>
+  <button onClick={() => setSeccion("empresa")}>Empresa</button>
+  <button onClick={() => setSeccion("contactos")}>Contactos</button>
+
+  {/* NUEVAS RUTAS SEO */}
+  <button onClick={() => window.location.href = "/asuncion-ciudad-del-este"}>
+    Asunción → CDE
+  </button>
+
+  <button onClick={() => window.location.href = "/asuncion-concepcion"}>
+    Asunción → Concepción
+  </button>
         </nav>
       </header>
+{rutaActual === "/asuncion-ciudad-del-este" && (
+  <section className="section">
+    <h2>Pasajes Asunción a Ciudad del Este</h2>
+    <p className="subtitle">
+      Viajá de Asunción a Ciudad del Este con NASA Golondrina. Consultá horarios, precios y disponibilidad.
+    </p>
+  </section>
+)}
 
+{rutaActual === "/asuncion-concepcion" && (
+  <section className="section">
+    <h2>Pasajes Asunción a Concepción</h2>
+    <p className="subtitle">
+      Pasajes diarios desde Asunción a Concepción. Servicio cómodo, seguro y nacional.
+    </p>
+  </section>
+)}
+
+{rutaActual === "/asuncion-chaco" && (
+  <section className="section">
+    <h2>Pasajes Asunción al Chaco</h2>
+    <p className="subtitle">
+      Viajá desde Asunción hacia Loma Plata, Filadelfia, Neuland y Mariscal Estigarribia.
+    </p>
+  </section>
+)}
       <section className="hero">
-        <div className="heroText">
-          <span className="badge">Transporte nacional premium</span>
+        <div className="heroContent">
+          <span>NASA GOLONDRINA PARAGUAY</span>
           <h2>Viajá por Paraguay con seguridad, comodidad y confianza.</h2>
-          <p>
-            Consultá horarios, elegí tu fecha y seleccioná tu asiento del 1 al 64.
-          </p>
+          <p>Consultá itinerarios, precios y reservá tu pasaje directo por WhatsApp.</p>
 
-          <div className="searchBox">
-            <div className="field">
-              <label>Fecha del viaje</label>
-              <input
-                type="date"
-                value={fecha}
-                onChange={(e) => setFecha(e.target.value)}
-              />
-            </div>
-
-            <div className="field">
-              <label>Estoy en</label>
-              <select value={origen} onChange={(e) => setOrigen(e.target.value)}>
-                <option value="Asunción">Asunción</option>
-                <option value="Ciudad del Este">Ciudad del Este</option>
-                <option value="Concepción">Concepción</option>
-                <option value="Pedro Juan Caballero">Pedro Juan Caballero</option>
-              </select>
-            </div>
-
-            <button onClick={() => setSeccion("horarios")}>Buscar viajes</button>
+          <div className="dateBox">
+            <label>Fecha del viaje</label>
+            <input
+              type="date"
+              value={fecha}
+              onChange={(e) => setFecha(e.target.value)}
+            />
           </div>
-        </div>
-
-        <div className="heroImage">
-          <img src={busImg} alt="Bus NASA Golondrina" />
+<div className="dateBox">
+  <label>Estoy en</label>
+  <select value={origen} onChange={(e) => setOrigen(e.target.value)}>
+    <option value="Asunción">Asunción</option>
+    <option value="Ciudad del Este">Ciudad del Este</option>
+<option value="Concepción">Concepción</option>
+<option value="Pedro Juan Caballero">Pedro Juan Caballero</option>
+  </select>
+</div>
         </div>
       </section>
+{seccion === "horarios" && (
+  <section className="section">
+    <h2>Horarios y precios</h2>
+    <p className="subtitle">Salidas nacionales disponibles.</p>
 
-      {seccion === "horarios" && (
-        <section className="section">
-          <div className="sectionHead">
-            <h2>Horarios y precios</h2>
-            <p>Salidas disponibles desde {origen}</p>
+    <div className="grid">
+      {horarios
+        .filter(([, destino]) => destino.startsWith(origen))
+        .map(([hora, destino, precio], index) => (
+          <div className="tripCard" key={index}>
+            <div className="timeRow">
+              <strong>{hora}</strong>
+              <span>Disponible</span>
+            </div>
+
+            <h3>{destino}</h3>
+
+            <div className="infoRow">
+              <p>Precio</p>
+              <b>Gs. {precio}</b>
+            </div>
+
+            <div className="infoRow">
+              <p>Días</p>
+              <b>Lunes a Domingo</b>
+            </div>
+
+            <button onClick={() => consultar(hora, destino, precio)}>
+              Consultar
+            </button>
           </div>
-
-          <div className="grid">
-            {horarios
-              .filter(([, destino]) => destino.startsWith(origen))
-              .map(([hora, destino, precio], index) => (
-                <div className="tripCard" key={index}>
-                  <div className="timeRow">
-                    <strong>{hora}</strong>
-                    <span>Disponible</span>
-                  </div>
-
-                  <h3>{destino}</h3>
-
-                  <div className="infoRow">
-                    <p>Precio</p>
-                    <b>Gs. {precio}</b>
-                  </div>
-
-                  <div className="infoRow">
-                    <p>Frecuencia</p>
-                    <b>Lunes a Domingo</b>
-                  </div>
-
-                  <button onClick={() => consultar(hora, destino, precio)}>
-                    Consultar asiento
-                  </button>
-                </div>
-              ))}
-          </div>
-        </section>
-      )}
-
+        ))}
+    </div>
+  </section>
+)}
       {seccion === "empresa" && (
         <section className="section">
-          <div className="sectionHead">
-            <h2>Nuestra empresa</h2>
-            <p>Tradición, seguridad e innovación en transporte nacional.</p>
-          </div>
+          <h2>Nuestra Empresa</h2>
+          <p className="subtitle">Compromiso, seguridad y tradición.</p>
 
           <div className="empresaGrid">
             <div className="empresaCard">
               <h3>Misión</h3>
-              <p>Brindar transporte seguro, cómodo y confiable para conectar ciudades y familias del Paraguay.</p>
+              <p>
+                Brindar un servicio de transporte seguro, cómodo y confiable,
+                conectando personas, familias y ciudades de Paraguay.
+              </p>
             </div>
 
             <div className="empresaCard">
               <h3>Visión</h3>
-              <p>Ser referente nacional en transporte de pasajeros, modernizando la experiencia de viaje.</p>
+              <p>
+                Ser una empresa referente en transporte nacional, destacándonos
+                por innovación, calidad de servicio y modernización tecnológica.
+              </p>
             </div>
 
             <div className="empresaCard">
               <h3>Valores</h3>
-              <p>Seguridad, responsabilidad, honestidad, respeto y compromiso con el pasajero.</p>
+              <p>
+                Seguridad, honestidad, respeto, responsabilidad, servicio al
+                cliente y compromiso con el Paraguay.
+              </p>
             </div>
           </div>
         </section>
@@ -205,10 +231,8 @@ function App() {
 
       {seccion === "contactos" && (
         <section className="section">
-          <div className="sectionHead">
-            <h2>Contactos por ciudad</h2>
-            <p>Oficinas y puntos de atención.</p>
-          </div>
+          <h2>Contactos por ciudad</h2>
+          <p className="subtitle">Oficinas y puntos de atención.</p>
 
           <div className="grid">
             {contactos.map(([ciudad, direccion, telefono], index) => (
@@ -216,6 +240,10 @@ function App() {
                 <h3>{ciudad}</h3>
                 <p>📍 {direccion}</p>
                 <p>📞 {telefono}</p>
+                <div className="badges">
+                  <span>Venta de pasajes</span>
+                  <span>Encomiendas</span>
+                </div>
               </div>
             ))}
           </div>
@@ -224,27 +252,22 @@ function App() {
 
       {seccion === "asientos" && viajeSeleccionado && (
         <section className="section">
-          <div className="sectionHead">
-            <h2>Seleccioná tu asiento</h2>
-            <p>
-              {viajeSeleccionado.destino} · {viajeSeleccionado.hora} hs · Gs. {viajeSeleccionado.precio}
-            </p>
-          </div>
+          <h2>Seleccioná tu asiento</h2>
+          <p className="subtitle">
+            {viajeSeleccionado.destino} - {viajeSeleccionado.hora} hs - Gs.{" "}
+            {viajeSeleccionado.precio}
+          </p>
 
-          <div className="busWrapper">
-            <div className="driver">Chofer</div>
-
-            <div className="bus-layout">
-              {Array.from({ length: 64 }, (_, i) => i + 1).map((num) => (
-                <button
-                  key={num}
-                  className={asiento === num ? "seat selected" : "seat"}
-                  onClick={() => setAsiento(num)}
-                >
-                  {num}
-                </button>
-              ))}
-            </div>
+          <div className="bus-layout">
+            {Array.from({ length: 64 }, (_, i) => i + 1).map((num) => (
+              <button
+                key={num}
+                className={asiento === num ? "seat selected" : "seat"}
+                onClick={() => setAsiento(num)}
+              >
+                {num}
+              </button>
+            ))}
           </div>
 
           {asiento && (
@@ -259,17 +282,20 @@ function App() {
               <h3>Datos para transferencia</h3>
               <p><b>Banco:</b> Banco Itaú Paraguay</p>
               <p><b>Titular:</b> NASA GOLONDRINA S.A.</p>
+              <p><b>Cuenta:</b> 0000000000</p>
               <p><b>RUC:</b> 5277316-7</p>
 
               <a
                 className="whatsapp-pay"
                 href={`https://wa.me/595981668662?text=${encodeURIComponent(
-`Hola, quiero confirmar mi reserva.
+`Hola, ya realicé la transferencia para mi pasaje.
 Destino: ${viajeSeleccionado.destino}
 Fecha: ${fecha}
 Horario: ${viajeSeleccionado.hora}
 Asiento: ${asiento}
-Monto: Gs. ${viajeSeleccionado.precio}`
+Monto: Gs. ${viajeSeleccionado.precio}
+
+Adjunto comprobante.`
                 )}`}
                 target="_blank"
                 rel="noreferrer"
@@ -282,7 +308,7 @@ Monto: Gs. ${viajeSeleccionado.precio}`
       )}
 
       <footer>
-        <h3>NASA Golondrina Paraguay</h3>
+        <h3>Nasa Golondrina Paraguay</h3>
         <p>Reservas: 0981 668 662</p>
       </footer>
     </div>
